@@ -11,10 +11,11 @@
       <button (click)="getUser(item.id)">get user info</button>
     </div>
   </div>
-  <div>
+  <div *ngIf=show class="show? 'd-show': 'd-none' ">
     <h3>name: {{userData?.name}}</h3>
     <p>username: {{userData?.username}}</p>
     <p>phone: {{userData?.phone}}</p>
   </div>
 
 </div>
+<button (click)="removeUserDetail()">Remove User info</button>

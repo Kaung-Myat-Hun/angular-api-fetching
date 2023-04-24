@@ -25,6 +25,7 @@ export class AppComponent {
 
   data: any
   userData : any
+  show : boolean = false;
   constructor(private JokeApiService: JokeApiService) { }
 
   private url = 'https://jsonplaceholder.typicode.com/users'
@@ -37,8 +38,14 @@ export class AppComponent {
   }
 
   getUser(id:number){
+    this.show = true
     this.JokeApiService.getUserData(this.userUrl(id)).then((res)=>{
       this.userData= res.data
     }).catch((err)=>console.log(err))
+  }
+
+  removeUserDetail(){
+    this.show= false;
+    this.userData= {}
   }
 }

@@ -2,3 +2,9 @@
   display: flex;
   justify-content: space-around;
 }
+.d-show{
+  display: block;
+}
+.d-none{
+  display: none;
+}
