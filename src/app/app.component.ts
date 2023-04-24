@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JokeApiService } from './joke-api.service'
+import {FetchUsers, GetUserDetail} from './apis/Constant'
 
 @Component({
   selector: 'app-root',
@@ -28,18 +29,18 @@ export class AppComponent {
   show : boolean = false;
   constructor(private JokeApiService: JokeApiService) { }
 
-  private url = 'https://jsonplaceholder.typicode.com/users'
-  private userUrl = (id:number)=> `https://jsonplaceholder.typicode.com/users/${id}`
+  // private url = 'https://jsonplaceholder.typicode.com/users'
+  // private userUrl = (id:number)=> `https://jsonplaceholder.typicode.com/users/${id}`
 
   ngOnInit(){
-    this.JokeApiService.getRandomJoke(this.url).then((res)=>{
+    this.JokeApiService.getRandomJoke(FetchUsers).then((res)=>{
       this.data = res.data
     }).catch((err)=> console.log("error is occured", err))
   }
 
   getUser(id:number){
     this.show = true
-    this.JokeApiService.getUserData(this.userUrl(id)).then((res)=>{
+    this.JokeApiService.getUserData(GetUserDetail(id)).then((res)=>{
       this.userData= res.data
     }).catch((err)=>console.log(err))
   }
