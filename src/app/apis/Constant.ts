@@ -1,3 +1,3 @@
-export const FetchUsers :string  = 'https://jsonplaceholder.typicode.com/users'
+export const FetchUsersAPI :string  = 'https://jsonplaceholder.typicode.com/users'
 
-export const GetUserDetail : any = (id:number)=> `https://jsonplaceholder.typicode.com/users/${id}`
+export const GetUserDetailAPI : any = (id:number)=> `https://jsonplaceholder.typicode.com/users/${id}`
