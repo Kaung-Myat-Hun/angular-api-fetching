@@ -42,7 +42,7 @@ export class AppComponent {
     this.show = true
     this.JokeApiService.getUserData(GetUserDetail(id)).then((res)=>{
       this.userData= res.data
-    }).catch((err)=>console.log(err))
+    }).catch((err)=>console.log("error is occured",err))
   }
 
   removeUserDetail(){
