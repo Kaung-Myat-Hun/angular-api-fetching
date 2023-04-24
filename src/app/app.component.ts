@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent {
   title = 'api-fetching';
   private url = 'https://jsonplaceholder.typicode.com/posts'
+  private url1 = 'https://jsonplaceholder.typicode.com/photos'
 
   data: any;
   ngOnInit():void{
@@ -15,5 +16,9 @@ export class AppComponent {
       this.data= response;
       console.log(this.data)
     })
+    // fetch(this.url1).then((res)=> res.json()).then((response)=>{
+    //   this.data = response;
+    //   console.log(this.data)
+    // })
   }
 }
