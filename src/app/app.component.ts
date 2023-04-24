@@ -47,6 +47,6 @@ export class AppComponent {
 
   removeUserDetail(){
     this.show= false;
-    this.userData= {}
+    this.userData= {};
   }
 }
