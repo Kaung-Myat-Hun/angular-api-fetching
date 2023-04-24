@@ -1,8 +1,20 @@
-<div *ngFor="let item of data">
-  <h3 >{{item.id}}Title : {{item.name}}</h3>
-  <!-- <img src="{{item.url}}" alt=""> -->
-  <p>user name : {{item.username}}</p>
-  <p>phone : {{item.phone}}</p>
-  <p>website : {{item.website}}</p>
-  <p>email : {{item.email}}</p>
+
+<div class="flex">
+  <div>
+    <div *ngFor="let item of data">
+      <h3 >{{item.id}}Title : {{item.name}}</h3>
+      <!-- <img src="{{item.url}}" alt=""> -->
+      <!-- <p>user name : {{item.username}}</p>
+      <p>phone : {{item.phone}}</p>
+      <p>website : {{item.website}}</p>
+      <p>email : {{item.email}}</p> -->
+      <button (click)="getUser(item.id)">get user info</button>
+    </div>
+  </div>
+  <div>
+    <h3>{{userData?.name}}</h3>
+    <p>{{userData?.username}}</p>
+    <p>{{userData?.phone}}</p>
+  </div>
+
 </div>

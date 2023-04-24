@@ -14,6 +14,13 @@ export class JokeApiService {
       }
     })
   }
+  getUserData(url:string){
+    return axios.get(url,{
+      headers:{
+        accept: 'application/json'
+      }
+    })
+  }
   postAnything(url:string, data:object){
     return axios.post(url,data,{
       headers:{

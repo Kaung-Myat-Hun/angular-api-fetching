@@ -24,13 +24,21 @@ export class AppComponent {
   // }
 
   data: any
+  userData : any
   constructor(private JokeApiService: JokeApiService) { }
 
   private url = 'https://jsonplaceholder.typicode.com/users'
+  private userUrl = (id:number)=> `https://jsonplaceholder.typicode.com/users/${id}`
 
   ngOnInit(){
     this.JokeApiService.getRandomJoke(this.url).then((res)=>{
       this.data = res.data
     }).catch((err)=> console.log("error is occured", err))
+  }
+
+  getUser(id:number){
+    this.JokeApiService.getUserData(this.userUrl(id)).then((res)=>{
+      this.userData= res.data
+    }).catch((err)=>console.log(err))
   }
 }
