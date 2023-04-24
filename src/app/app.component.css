@@ -8,3 +8,6 @@
 .d-none{
   display: none;
 }
+button:hover{
+  cursor: pointer;
+}
