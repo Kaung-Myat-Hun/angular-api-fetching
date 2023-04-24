@@ -21,28 +21,28 @@ export class JokeApiService {
       }
     })
   }
-  postAnything(url:string, data:object){
+  postAnything(url:string, data:any){
     return axios.post(url,data,{
       headers:{
         accept: 'application/json'
       }
     })
   }
-  updateService(url:string, data:object){
+  updateService(url:string, data:any){
     return axios.patch(url,data,{
       headers:{
         accept: 'application/json'
       }
     })
   }
-  imageUpload(url:string, data:object){
+  imageUpload(url:string, data:any){
     return axios.post(url,data,{
       headers:{
         "Content-Type" : "multipart/form-data"
       }
     })
   }
-  deleteService(url:string, data:object){
+  deleteService(url:string, data:any){
     return axios.delete(url,{
       headers:{
         accept: 'application/json'
