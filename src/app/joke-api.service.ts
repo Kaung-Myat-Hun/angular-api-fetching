@@ -7,10 +7,38 @@ import axios from 'axios'
 export class JokeApiService {
 
   constructor() { }
-  getRandomJoke(){
-    return axios.get('https://jsonplaceholder.typicode.com/users',{
+  getRandomJoke(url:string){
+    return axios.get(url,{
       headers:{
         accept: "application/json"
+      }
+    })
+  }
+  postAnything(url:string, data:object){
+    return axios.post(url,data,{
+      headers:{
+        accept: 'application/json'
+      }
+    })
+  }
+  updateService(url:string, data:object){
+    return axios.patch(url,data,{
+      headers:{
+        accept: 'application/json'
+      }
+    })
+  }
+  imageUpload(url:string, data:object){
+    return axios.post(url,data,{
+      headers:{
+        "Content-Type" : "multipart/form-data"
+      }
+    })
+  }
+  deleteService(url:string, data:object){
+    return axios.delete(url,{
+      headers:{
+        accept: 'application/json'
       }
     })
   }
