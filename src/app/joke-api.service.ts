@@ -38,6 +38,7 @@ export class JokeApiService {
   imageUpload(url:string, data:any){
     return axios.post(url,data,{
       headers:{
+        accept: "application/json",
         "Content-Type" : "multipart/form-data"
       }
     })
