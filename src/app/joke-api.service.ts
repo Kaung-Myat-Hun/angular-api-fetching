@@ -14,6 +14,7 @@ export class JokeApiService {
       }
     })
   }
+
   getUserData(url:string){
     return axios.get(url,{
       headers:{
@@ -21,6 +22,7 @@ export class JokeApiService {
       }
     })
   }
+
   postAnything(url:string, data:any){
     return axios.post(url,data,{
       headers:{
@@ -28,6 +30,7 @@ export class JokeApiService {
       }
     })
   }
+
   updateService(url:string, data:any){
     return axios.patch(url,data,{
       headers:{
@@ -35,6 +38,7 @@ export class JokeApiService {
       }
     })
   }
+
   imageUpload(url:string, data:any){
     return axios.post(url,data,{
       headers:{
@@ -43,6 +47,7 @@ export class JokeApiService {
       }
     })
   }
+
   deleteService(url:string, data:any){
     return axios.delete(url,{
       headers:{
