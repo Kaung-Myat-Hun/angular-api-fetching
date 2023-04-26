@@ -22,3 +22,10 @@
 
 </div>
 <button (click)="removeUserDetail()">Clear User info</button>
+
+<button (click)="GetPosts()">Get Posts</button>
+
+<div *ngFor="let item of posts" class="post-container">
+  <h3>Post{{item.id}} : {{item.title}}</h3>
+  <button (click)="GetPostDetail(item.id)">Get Detail</button>
+</div>

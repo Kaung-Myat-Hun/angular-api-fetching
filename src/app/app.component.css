@@ -11,3 +11,6 @@
 button:hover{
   cursor: pointer;
 }
+.post-container{
+  width: 45vw;
+}

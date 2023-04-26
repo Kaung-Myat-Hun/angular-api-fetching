@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JokeApiService } from './joke-api.service'
-import {FetchUsersAPI, GetUserDetailAPI} from './apis/Constant'
+import {FetchUsersAPI, GetUserDetailAPI,GetPostsAPI,GetSinglePostAPI} from './apis/Constant'
 
 @Component({
   selector: 'app-root',
@@ -26,6 +26,8 @@ export class AppComponent {
 
   data: any
   userData : any
+  posts :any
+  sPosts: any
   show : boolean = false;
   loading: boolean = false;
   constructor(private JokeApiService: JokeApiService) { }
@@ -52,5 +54,19 @@ export class AppComponent {
   removeUserDetail(){
     this.show= false;
     this.userData= {};
+  }
+
+  GetPosts() {
+    this.JokeApiService.getUserData(GetPostsAPI).then((res)=>{
+      this.posts = res.data
+      console.log("posts", this.posts)
+    }).catch((err)=> console.log("error is occured ", err))
+  }
+
+  GetPostDetail(id:number) {
+    this.JokeApiService.getUserData(GetSinglePostAPI(id)).then((res)=>{
+      this.sPosts = res.data
+      console.log('single',this.sPosts)
+    }).catch((err)=> console.log(err))
   }
 }
