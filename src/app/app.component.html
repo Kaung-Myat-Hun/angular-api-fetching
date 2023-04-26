@@ -25,7 +25,19 @@
 
 <button (click)="GetPosts()">Get Posts</button>
 
-<div *ngFor="let item of posts" class="post-container">
-  <h3>Post{{item.id}} : {{item.title}}</h3>
-  <button (click)="GetPostDetail(item.id)">Get Detail</button>
+<div class="flex">
+  <div>
+    <div *ngFor="let item of posts" class="post-container">
+      <h3>Post{{item.id}} : {{item.title}}</h3>
+      <button (click)="GetPostDetail(item.id)">Get Detail</button>
+
+    </div>
+  </div>
+
+  <div class="post-container">
+    <h3>Post Body From {{sPosts?.id}}</h3>
+    <p>{{sPosts?.body}}</p>
+  </div>
 </div>
+
+
