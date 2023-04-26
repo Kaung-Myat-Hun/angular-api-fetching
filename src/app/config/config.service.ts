@@ -8,7 +8,7 @@ configUrl ="https://jsonplaceholder.typicode.com/posts"
 @Injectable()
 
 getConfig(){
-  return this.http.get<Config>(this.configUr)
+  return this.http.get<Config>(this.configUrl)
 }
 
 export class ConfigService{
