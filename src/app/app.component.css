@@ -3,10 +3,10 @@
   justify-content: space-around;
 }
 .d-show{
-  display: block;
+  display: block !important;
 }
 .d-none{
-  display: none;
+  display: none !important;
 }
 button:hover{
   cursor: pointer;

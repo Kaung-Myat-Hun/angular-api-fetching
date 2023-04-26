@@ -12,10 +12,13 @@
     </div>
   </div>
   <div *ngIf=show class="show? 'd-show': 'd-none' ">
-    <h3>name: {{userData?.name}}</h3>
-    <p>username: {{userData?.username}}</p>
-    <p>phone: {{userData?.phone}}</p>
+    <div>
+      <h3>name: {{userData?.name}}</h3>
+      <p>username: {{userData?.username}}</p>
+      <p>phone: {{userData?.phone}}</p>
+    </div>
   </div>
+  <h3 *ngIf=loading class="loading ? 'd-show' : 'd-none' ">Loading......</h3>
 
 </div>
 <button (click)="removeUserDetail()">Clear User info</button>
