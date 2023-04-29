@@ -1,11 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { JokeApiService } from './joke-api.service'
-import {FetchUsersAPI, GetUserDetailAPI,GetPostsAPI,GetSinglePostAPI} from './apis/Constant'
+import { JokeApiService } from './joke-api.service';
+import {
+  FetchUsersAPI,
+  GetUserDetailAPI,
+  GetPostsAPI,
+  GetSinglePostAPI,
+} from './apis/Constant';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   title = 'api-fetching';
@@ -24,49 +29,63 @@ export class AppComponent {
   //   // })
   // }
 
-  data: any
-  userData : any
-  posts :any
-  sPosts: any
-  show : boolean = false;
+  data: any;
+  userData: any;
+  posts: any;
+  sPosts: any;
+  show: boolean = false;
   loading: boolean = false;
-  constructor(private JokeApiService: JokeApiService) { }
+  bShow: boolean = false;
+  loading1: boolean = false;
+  constructor(private JokeApiService: JokeApiService) {}
 
   // private url = 'https://jsonplaceholder.typicode.com/users'
   // private userUrl = (id:number)=> `https://jsonplaceholder.typicode.com/users/${id}`
 
-  ngOnInit(){
-    this.JokeApiService.getRandomJoke(FetchUsersAPI).then((res)=>{
-      this.data = res.data
-    }).catch((err)=> console.log("error is occured", err))
+  ngOnInit() {
+    this.JokeApiService.getRandomJoke(FetchUsersAPI)
+      .then((res) => {
+        this.data = res.data;
+      })
+      .catch((err) => console.log('error is occured', err));
   }
 
-  getUser(id:number){
-    this.show= false;
-    this.loading = true
-    this.JokeApiService.getUserData(GetUserDetailAPI(id)).then((res)=>{
-      this.show = true
-      this.loading= false
-      this.userData= res.data
-    }).catch((err)=>console.log("error is occured",err))
+  getUser(id: number) {
+    this.show = false;
+    this.loading = true;
+    this.JokeApiService.getUserData(GetUserDetailAPI(id))
+      .then((res) => {
+        this.show = true;
+        this.loading = false;
+        this.userData = res.data;
+      })
+      .catch((err) => console.log('error is occured', err));
   }
 
-  removeUserDetail(){
-    this.show= false;
-    this.userData= {};
+  removeUserDetail() {
+    this.show = false;
+    this.userData = {};
   }
 
   GetPosts() {
-    this.JokeApiService.getUserData(GetPostsAPI).then((res)=>{
-      this.posts = res.data
-      console.log("posts", this.posts)
-    }).catch((err)=> console.log("error is occured ", err))
+    this.JokeApiService.getUserData(GetPostsAPI)
+      .then((res) => {
+        this.posts = res.data;
+        console.log('posts', this.posts);
+      })
+      .catch((err) => console.log('error is occured ', err));
   }
 
-  GetPostDetail(id:number) {
-    this.JokeApiService.getUserData(GetSinglePostAPI(id)).then((res)=>{
-      this.sPosts = res.data
-      console.log('single',this.sPosts)
-    }).catch((err)=> console.log(err))
+  GetPostDetail(id: number) {
+    this.bShow = false;
+    this.loading1 = true;
+    this.JokeApiService.getUserData(GetSinglePostAPI(id))
+      .then((res) => {
+        this.bShow = true;
+        this.loading1 = false;
+        this.sPosts = res.data;
+        console.log('single', this.sPosts);
+      })
+      .catch((err) => console.log(err));
   }
 }
