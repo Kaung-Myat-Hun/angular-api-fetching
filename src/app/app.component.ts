@@ -5,6 +5,7 @@ import {
   GetUserDetailAPI,
   GetPostsAPI,
   GetSinglePostAPI,
+  FakeStoreAPI,
 } from './apis/Constant';
 
 @Component({
@@ -46,6 +47,11 @@ export class AppComponent {
     this.JokeApiService.getRandomJoke(FetchUsersAPI)
       .then((res) => {
         this.data = res.data;
+      })
+      .catch((err) => console.log('error is occured', err));
+    this.JokeApiService.getRandomJoke(FakeStoreAPI)
+      .then((res) => {
+        console.log(res.data, 'Fake Store Api Fetched!');
       })
       .catch((err) => console.log('error is occured', err));
   }
